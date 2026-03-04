@@ -4,266 +4,15 @@
   <meta charset="UTF-8" />
   <title>Queen B's Food Truck</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --gold: #f4c542;
-      --dark: #1b1b1f;
-      --cream: #fff7e6;
-      --accent: #e63973;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    body {
-      background: var(--dark);
-      color: #f9f9f9;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(135deg, var(--dark), #2b2235);
-      padding: 1.5rem 1rem;
-      border-bottom: 2px solid var(--gold);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .logo-mark {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .logo-circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #fff, var(--gold));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--dark);
-      font-weight: 800;
-      font-size: 1.2rem;
-      box-shadow: 0 0 12px rgba(0,0,0,0.4);
-    }
-    .logo-text {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-    nav a {
-      color: #f9f9f9;
-      text-decoration: none;
-      margin-left: 1rem;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    nav a:hover {
-      color: var(--gold);
-    }
-    .hero {
-      padding: 3rem 1rem 2rem;
-      background: radial-gradient(circle at top, #3a2a4a, var(--dark));
-      border-bottom: 1px solid #333;
-    }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
-      gap: 2rem;
-      align-items: center;
-    }
-    .hero h1 {
-      font-size: 2.6rem;
-      margin-bottom: 0.5rem;
-    }
-    .hero h1 span {
-      color: var(--gold);
-    }
-    .hero p {
-      max-width: 32rem;
-      margin-bottom: 1rem;
-      color: #f0e9ff;
-    }
-    .tagline {
-      font-style: italic;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-    }
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .btn {
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid var(--gold);
-      background: var(--gold);
-      color: var(--dark);
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .btn.secondary {
-      background: transparent;
-      color: var(--gold);
-    }
-    .hero-card {
-      background: rgba(0,0,0,0.35);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      border: 1px solid rgba(244,197,66,0.4);
-    }
-    .hero-card h2 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-    }
-    .hero-card p {
-      font-size: 0.9rem;
-      color: #f5f5f5;
-    }
-    section {
-      padding: 2.5rem 1rem;
-      background: var(--dark);
-      border-bottom: 1px solid #2a2a2a;
-    }
-    section:nth-of-type(even) {
-      background: #15151a;
-    }
-    h2.section-title {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-    .section-subtitle {
-      margin-bottom: 1.5rem;
-      color: #dcdcdc;
-      font-size: 0.95rem;
-    }
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-    .menu-item {
-      background: rgba(0,0,0,0.4);
-      border-radius: 0.9rem;
-      padding: 1rem 1.1rem;
-      border: 1px solid #333;
-    }
-    .menu-item h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.25rem;
-      color: var(--gold);
-    }
-    .menu-item .price {
-      float: right;
-      color: var(--cream);
-      font-weight: 600;
-    }
-    .menu-item p {
-      font-size: 0.9rem;
-      color: #e0e0e0;
-      clear: both;
-    }
-    .menu-tag {
-      display: inline-block;
-      margin-top: 0.4rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.2);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #f5f5f5;
-    }
-    .bp-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
-      gap: 2rem;
-    }
-    .bp-card {
-      background: rgba(0,0,0,0.4);
-      border-radius: 0.9rem;
-      padding: 1.2rem 1.3rem;
-      border: 1px solid #333;
-      margin-bottom: 1rem;
-    }
-    .bp-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .bp-card p, .bp-card ul {
-      font-size: 0.9rem;
-      color: #e0e0e0;
-    }
-    .bp-card ul {
-      padding-left: 1.1rem;
-      margin-top: 0.3rem;
-    }
-    .bp-card li {
-      margin-bottom: 0.2rem;
-    }
-    footer {
-      padding: 1.5rem 1rem 2rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #b0b0b0;
-      background: #101015;
-    }
-    footer a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-    @media (max-width: 720px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-      .bp-grid {
-        grid-template-columns: 1fr;
-      }
-      nav {
-        display: none;
-      }
-      header {
-        text-align: center;
-      }
-      .logo-mark {
-        justify-content: center;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
+
+  <header class="gt-header">
     <div class="container nav">
       <div class="logo-mark">
-        <div class="logo-circle">B</div>
+        <img src="assets/images/queenb-logo.jpg" class="logo-img" alt="Queen B's Logo" />
         <div class="logo-text">Queen B's</div>
       </div>
       <nav>
@@ -275,27 +24,35 @@
   </header>
 
   <main>
+
     <section class="hero">
       <div class="container hero-inner">
         <div>
+
+          <img src="assets/images/queenb-logo.jpg"
+               alt="Queen B's Logo"
+               class="hero-logo" />
+
           <h1><span>Queen B's</span> Food Truck</h1>
-          <p class="tagline">Bold comfort food, built for Minnesota nights and festival lights.</p>
+          <p class="tagline">Neon‑lit comfort food engineered for Minnesota nights.</p>
           <p>
             Queen B's is a Minnesota-based food truck concept inspired by Owenee Bethany Kruse —
-            a brand built on warmth, confidence, and unforgettable flavor.
+            powered by GhostTech neon energy and built for unforgettable flavor.
           </p>
+
           <div class="hero-buttons">
-            <a href="#menu" class="btn">View Menu</a>
+            <a href="#menu" class="btn">Menu</a>
             <a href="#business-plan" class="btn secondary">Business Plan</a>
           </div>
         </div>
+
         <aside class="hero-card">
           <h2>At a Glance</h2>
           <p>
-            • Location: Long Prairie, MN<br />
-            • Focus: Breweries, festivals, fairs, and private events<br />
-            • Concept: High-margin, fast-service comfort food with a signature Queen B twist<br />
-            • Season: Peak May–October, with winter catering and pop-ups
+            • Long Prairie, MN<br />
+            • Breweries, festivals, fairs, private events<br />
+            • High-margin neon comfort food<br />
+            • Peak season: May–October
           </p>
         </aside>
       </div>
@@ -305,50 +62,43 @@
       <div class="container">
         <h2 class="section-title">Menu</h2>
         <p class="section-subtitle">
-          A focused, high-margin menu designed for speed, consistency, and craveability.  
-          Items and prices are placeholders — tune them to your actual food cost and market.
+          Engineered for speed, flavor, and neon‑lit craveability.
         </p>
+
         <div class="menu-grid">
+
           <article class="menu-item">
-            <h3>Queen B Smash Burger <span class="price">$13</span></h3>
+            <h3>Cheesebread <span class="price">$8</span></h3>
             <p>
-              Double smashed beef patty, caramelized onions, house Queen B sauce, pickles, and American cheese
-              on a toasted brioche bun.
+              Buttery, molten, neon‑gold cheesebread with Queen B’s signature dipping sauce.
+            </p>
+            <span class="menu-tag">Fan Favorite</span>
+          </article>
+
+          <article class="menu-item">
+            <h3>Queen B’s Burgers <span class="price">$13</span></h3>
+            <p>
+              Smash‑style burgers with caramelized onions, melted cheese, and Queen B’s house sauce.
             </p>
             <span class="menu-tag">Signature</span>
           </article>
 
           <article class="menu-item">
-            <h3>Honey Heat Loaded Fries <span class="price">$11</span></h3>
+            <h3>Queen B’s Chili <span class="price">$10</span></h3>
             <p>
-              Crispy fries topped with spicy honey drizzle, garlic aioli, scallions, and crumbled bacon.
+              Slow‑simmered beef chili with bold spices and sweet heat.
             </p>
-            <span class="menu-tag">Best Seller</span>
+            <span class="menu-tag">Hearty</span>
           </article>
 
           <article class="menu-item">
-            <h3>Bee Sting Chicken Sandwich <span class="price">$12</span></h3>
+            <h3>Queen B’s Late Night Dinner <span class="price">$14</span></h3>
             <p>
-              Crispy chicken, hot honey glaze, slaw, and pickles on a toasted bun.
+              Rotating neon comfort classics for after‑hours cravings.
             </p>
-            <span class="menu-tag">Spicy</span>
+            <span class="menu-tag">Late Night</span>
           </article>
 
-          <article class="menu-item">
-            <h3>Queen’s Mac Bowl <span class="price">$12</span></h3>
-            <p>
-              Creamy mac and cheese topped with your choice of crispy chicken, bacon, or roasted veggies.
-            </p>
-            <span class="menu-tag">Comfort</span>
-          </article>
-
-          <article class="menu-item">
-            <h3>Mini Honey Donuts <span class="price">$8</span></h3>
-            <p>
-              Fresh mini donuts tossed in cinnamon sugar and finished with a light honey drizzle.
-            </p>
-            <span class="menu-tag">Sweet</span>
-          </article>
         </div>
       </div>
     </section>
@@ -357,101 +107,36 @@
       <div class="container">
         <h2 class="section-title">Business Plan Snapshot</h2>
         <p class="section-subtitle">
-          This is the high-level view lenders, partners, and collaborators care about.  
-          You can link a full markdown or PDF version from here.
+          A modular, scalable GhostTech‑style business architecture.
         </p>
 
-        <div class="bp-grid">
-          <div>
-            <div class="bp-card">
-              <h3>Executive Summary</h3>
-              <p>
-                Queen B's is a Minnesota-based food truck serving high-margin, fast-service comfort food
-                tailored to breweries, festivals, and private events. The brand is inspired by
-                <strong>Owenee Bethany Kruse</strong>, whose presence and energy define the Queen B identity.
-              </p>
-            </div>
-
-            <div class="bp-card">
-              <h3>Market & Positioning</h3>
-              <ul>
-                <li>Primary markets: Central Minnesota and Twin Cities events.</li>
-                <li>Core venues: Breweries, fairs, festivals, food truck rallies, and private bookings.</li>
-                <li>Advantage: Tight menu, fast service, strong brand story, and modular operations.</li>
-              </ul>
-            </div>
-
-            <div class="bp-card">
-              <h3>Operations</h3>
-              <ul>
-                <li>Mobile Food Unit licensed in Minnesota.</li>
-                <li>Commissary kitchen for prep, storage, and sanitation.</li>
-                <li>Owner-operator model with 1–2 staff during peak events.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <div class="bp-card">
-              <h3>Financial Overview</h3>
-              <ul>
-                <li>Startup costs: Truck, buildout, equipment, permits, insurance, initial inventory.</li>
-                <li>Revenue focus: High-volume events and recurring brewery partnerships.</li>
-                <li>Seasonality: Strong summer revenue; winter supported by catering and pop-ups.</li>
-              </ul>
-            </div>
-
-            <div class="bp-card">
-              <h3>Funding Strategy</h3>
-              <ul>
-                <li>Minnesota grants and rural business programs.</li>
-                <li>CDFI lenders (e.g., Initiative Foundation, NDC, WomenVenture).</li>
-                <li>DEED loan participation, SBA microloan, and optional Kiva 0% loan.</li>
-              </ul>
-              <p style="margin-top:0.4rem;">
-                Full business plan:  
-                <a href="business-plan/queen-bs-business-plan.md" style="color:var(--gold); text-decoration:none;">
-                  View detailed plan (Markdown)
-                </a>
-              </p>
-            </div>
-
-            <div class="bp-card">
-              <h3>Brand & Story</h3>
-              <p>
-                Queen B's is more than a truck — it’s a tribute to Owenee Bethany Kruse and the people who
-                show up with heart, grit, and style. The brand leans into bold visuals, warm hospitality,
-                and a clear, confident voice.
-              </p>
-            </div>
-          </div>
+        <div class="menu-item">
+          <p>
+            Full business plan located at:
+            <strong>business-plan/queen-bs-business-plan.md</strong>
+          </p>
         </div>
       </div>
     </section>
 
     <section id="contact">
       <div class="container">
-        <h2 class="section-title">Contact & Booking</h2>
-        <p class="section-subtitle">
-          Customize this section with real contact details once you’re ready to take inquiries.
-        </p>
-        <div class="bp-card">
-          <p>
-            For bookings, collaborations, or funding conversations, reach out to the Queen B's team.
-          </p>
-          <p style="margin-top:0.5rem;">
-            <strong>Email:</strong> <em>you@example.com</em><br />
-            <strong>Instagram:</strong> <em>@queenbsfoodtruck</em><br />
-            <strong>Location:</strong> Long Prairie, Minnesota
-          </p>
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Booking, partnerships, and event inquiries.</p>
+
+        <div class="menu-item">
+          <p><strong>Email:</strong> you@example.com</p>
+          <p><strong>Instagram:</strong> @queenbsfoodtruck</p>
+          <p><strong>Location:</strong> Long Prairie, Minnesota</p>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
-    Queen B's Food Truck — inspired by Owenee Bethany Kruse.  
-    Built with ❤️ and GitHub Pages.
+    Queen B's Food Truck — powered by GhostTech Neon.
   </footer>
+
 </body>
-                                                                                                         </html>
+  </html>
