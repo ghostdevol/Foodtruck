@@ -103,9 +103,62 @@
       color: #8B4513;
     }
 
-    nav {
+    /* Dropdown Navigation */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-btn {
+      background-color: #8B4513;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 50px;
+      font-weight: bold;
       display: flex;
-      gap: 2rem;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .dropdown-btn:hover {
+      background-color: #A0522D;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      top: 100%;
+      left: 0;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .dropdown-content a {
+      color: #8B4513;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1e8d6;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Hero Section */
@@ -214,6 +267,8 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       border-top: 3px solid #CD853F;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .menu-item:hover {
@@ -248,4 +303,185 @@
 
     /* Responsive Design */
     @media (min-width: 768px) {
-      .hero
+      .nav {
+        justify-content: space-between;
+      }
+      
+      .hero-inner {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+      }
+      
+      .hero > .container > div {
+        flex: 1;
+      }
+      
+      .hero-card {
+        flex: 0 0 300px;
+      }
+      
+      h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .nav {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+      
+      .dropdown {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .hero {
+        padding: 2rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo-mark">
+        <img src="https://placehold.co/150x150?text=QB" class="logo-img" alt="Queen B's Logo" />
+        <div class="logo-text">Queen B's</div>
+      </div>
+      
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          Menu 
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L6 6L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="dropdown-content">
+          <a href="#menu">View Menu</a>
+          <a href="#business-plan">Business Plan</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <img src="https://placehold.co/150x150?text=QB" alt="Queen B's Logo" class="hero-logo" />
+          <h1><span>Queen B's</span> Food Truck</h1>
+          <p class="tagline">Bold comfort food, built for Minnesota nights and festival lights.</p>
+          <p>
+            Queen B's is a Minnesota-based food truck concept inspired by Owenee Bethany Kruse â€”
+            a brand built on warmth, confidence, and unforgettable flavor.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#menu" class="btn">View Menu</a>
+            <a href="#business-plan" class="btn secondary">Business Plan</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>At a Glance</h2>
+          <p>
+            â€¢ Location: Long Prairie, MN<br />
+            â€¢ Focus: Breweries, festivals, fairs, and private events<br />
+            â€¢ Concept: High-margin comfort food with a Queen B twist<br />
+            â€¢ Season: Peak Mayâ€“October, with winter catering and pop-ups
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="container">
+        <h2 class="section-title">Menu</h2>
+        <p class="section-subtitle">
+          Queen B's signature comfort food lineup â€” bold, craveable, and built for Minnesota nights.
+        </p>
+
+        <div class="menu-grid">
+          <article class="menu-item">
+            <h3>Cheesebread <span class="price">$8</span></h3>
+            <p>
+              Fresh-baked buttery bread topped with melted mozzarella and garlic seasoning,
+              served with Queen B's signature dipping sauce.
+            </p>
+            <span class="menu-tag">Fan Favorite</span>
+          </article>
+
+          <article class="menu-item">
+            <h3>Queen B's Burgers <span class="price">$13</span></h3>
+            <p>
+              Smashâ€‘style burgers stacked with caramelized onions, melted cheese, and
+              Queen B's house sauce on a toasted brioche bun.
+            </p>
+            <span class="menu-tag">Signature</span>
+          </article>
+
+          <article class="menu-item">
+            <h3>Queen B's Chili <span class="price">$10</span></h3>
+            <p>
+              Slowâ€‘simmered beef chili with bold spices, sweet heat, and a rich tomato base.
+              Served with cheese, onions, and optional cornbread.
+            </p>
+            <span class="menu-tag">Hearty</span>
+          </article>
+
+          <article class="menu-item">
+            <h3>Queen B's Late Night Dinner <span class="price">$14</span></h3>
+            <p>
+              A rotating lateâ€‘night special featuring comfort classics like loaded fries,
+              mac bowls, or chicken bites â€” perfect for afterâ€‘hours cravings.
+            </p>
+            <span class="menu-tag">Late Night</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="business-plan">
+      <div class="container">
+        <h2 class="section-title">Business Plan Snapshot</h2>
+        <p class="section-subtitle">
+          High-level overview of Queen B's business model and funding strategy.
+        </p>
+
+        <div class="menu-item">
+          <p>
+            Full business plan available in the repo under:
+            <strong>business-plan/queen-bs-business-plan.md</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Booking, partnerships, and event inquiries.</p>
+
+        <div class="menu-item">
+          <p><strong>Email:</strong> you@example.com</p>
+          <p><strong>Instagram:</strong> @queenbsfoodtruck</p>
+          <p><strong>Location:</strong> Long Prairie, Minnesota</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Queen B's Food Truck â€” inspired by Owenee Bethany Kruse.
+  </footer>
+
+</body>
+</html>
